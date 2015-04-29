@@ -37,7 +37,7 @@ describe(Dealership) do
 
   describe('.clear') do
     it("empties out all of the saved dealerships") do
-      Dealership.new("Bob's New Cars").save()
+      Dealership.new("Bob's Used Cars").save()
       Dealership.clear()
       expect(Dealership.all()).to(eq([]))
     end
@@ -48,5 +48,16 @@ describe(Dealership) do
       expect(Dealership.all()).to(eq([]))
     end
   end
+
+  describe('.find') do
+    it("returns a dealership by is id number") do
+      test_dealership = Dealership.new("Bob's Used Cars")
+      test_dealership.save()
+      test_dealership2 = Dealership.new("Jane's Used Cars")
+      test_dealership2.save()
+      expect(Dealership.find(test_dealership.id())).to(eq(test_dealership))
+    end
+  end
+
 
 end
