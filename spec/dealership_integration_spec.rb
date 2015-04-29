@@ -16,3 +16,14 @@ describe('path for dealership index page', {:type => :feature}) do
     expect(page).to have_content('Add dealerships')
   end
 end
+
+describe('path for dealership form page', {:type => :feature}) do
+  it('user fills-in name of dealership and clicks add dealership') do
+    visit('/dealerships/new')
+    fill_in('name', with: "bobs cars")
+    click_button('Add Dealership')
+    expect(page).to have_content('Dealerships')
+  end
+
+  
+end

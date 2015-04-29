@@ -21,7 +21,7 @@ post('/dealerships') do
   name = params.fetch('name')
   Dealership.new(name).save()
   @dealerships = Dealership.all()
-  erb(:success)
+  erb(:dealerships)
 end
 
 get('/vehicles/:id') do
