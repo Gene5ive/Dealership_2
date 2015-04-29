@@ -25,5 +25,9 @@ describe('path for dealership form page', {:type => :feature}) do
     expect(page).to have_content('Dealerships')
   end
 
-  
+  it('user clicks inlink for added dealership') do
+    visit('/dealerships/1')
+    click_link('Add a new vehicle')
+    expect(page).to have_content('Add a vehicle to bobs cars')
+  end
 end
