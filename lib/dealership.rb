@@ -26,4 +26,8 @@ class Dealership
   define_method(:cars) do
     @cars
   end
+
+  define_method(:save) do
+    @@dealerships.push(self)
+  end
 end
