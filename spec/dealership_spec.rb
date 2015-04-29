@@ -1,5 +1,6 @@
 require('rspec')
 require('dealership')
+require('vehicle')
 
 describe(Dealership) do
   before() do
@@ -32,6 +33,15 @@ describe(Dealership) do
       test_dealership = Dealership.new("Bob's Used Cars")
       test_dealership.save()
       expect(Dealership.all()).to(eq([test_dealership]))
+    end
+  end
+
+  describe('#add_vehicle') do
+    it("adds a new vehicle to a dealership") do
+      test_dealership = Dealership.new("Bob's Used Cars")
+      test_vehicle = Vehicle.new("Tesla", "ModelS", 2012)
+      test_dealership.add_vehicle(test_vehicle)
+      expect(test_dealership.cars()).to(eq([test_vehicle]))
     end
   end
 
