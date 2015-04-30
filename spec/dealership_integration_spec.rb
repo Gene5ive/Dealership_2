@@ -40,6 +40,12 @@ describe('path for vehicles in dealership page', {:type => :feature}) do
     click_link('Add a new vehicle')
     expect(page).to have_content('Add a vehicle to bobs vehicles')
   end
+
+  it('links user to dealership index page') do
+    visit('dealerships/1')
+    click_link('Return to Main Page')
+    expect(page).to have_content('Welcome to Dealership Central')
+  end
 end
 
 describe('path for add a vehicle page', {:type => :feature}) do
