@@ -20,30 +20,30 @@ end
 describe('path for dealership form page', {:type => :feature}) do
   it('allows user to fill in name of dealership, click add dealership, and link to dealership list page') do
     visit('/dealerships/new')
-    fill_in('name', with: "bobs cars")
+    fill_in('name', with: "bobs vehicles")
     click_button('Add Dealership')
     expect(page).to have_content('Dealerships')
   end
 end
 
 describe('path for dealership list page', {:type => :feature}) do
-  it('links user to page for list of cars in dealership') do
+  it('links user to page for list of vehicles in dealership') do
     visit('/dealerships')
-    click_link('bobs cars')
-    expect(page).to have_content('Here are all the cars in this dealership')
+    click_link('bobs vehicles')
+    expect(page).to have_content('Here are all the vehicles in this dealership')
   end
 end
 
-describe('path for cars in dealership page', {:type => :feature}) do
+describe('path for vehicles in dealership page', {:type => :feature}) do
   it('links user to add new vehicle form page') do
     visit('dealerships/1')
     click_link('Add a new vehicle')
-    expect(page).to have_content('Add a vehicle to bobs cars')
+    expect(page).to have_content('Add a vehicle to bobs vehicles')
   end
 end
 
 describe('path for add a vehicle page', {:type => :feature}) do
-  it('allows user to fill in make, model, and year of car, click add vehicle, and link to success page') do
+  it('allows user to fill in make, model, and year of vehicle, click add vehicle, and link to success page') do
     visit('dealerships/1/vehicles/new')
     fill_in('Vehicle\'s make:', with: "Tesla")
     fill_in('Vehicle model:', with: "ModelS")

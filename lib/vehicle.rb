@@ -43,14 +43,14 @@ class Vehicle
   end
 
   define_method(:worth_buying?) do
-    american_cars = ["Chrysler", "Ford", "GM", "Tesla"]
-    american_cars.include?(@make).&(self.age.<=(15))
+    american_vehicles = ["Chrysler", "Ford", "GM", "Tesla"]
+    american_vehicles.include?(@make).&(self.age.<=(15))
   end
 
-  define_singleton_method(:find) do |identification|
+  define_singleton_method(:find) do |id|
     found_vehicle = nil
     @@vehicles.each() do |vehicle|
-      if vehicle.id().eql?(identification.to_i())
+      if vehicle.id().eql?(id.to_i())
         found_vehicle = vehicle
       end
     end
