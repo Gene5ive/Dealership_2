@@ -1,7 +1,7 @@
 <h3>Here are all the vehicles in this dealership:</h3>
 
 <ul>
-  <% @dealership.vehicles().each() do |vehicles| %>
+  <% @dealership.vehicles().each() do |vehicle| %>
     <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.make() %> <%= vehicle.model() %> <%= vehicle.year() %></a></li>
   <% end %>
 </ul>
