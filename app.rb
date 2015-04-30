@@ -25,7 +25,7 @@ post('/dealerships') do
 end
 
 get('/vehicles/:id') do
-  @vehicle = Vehicle.find(params.fetch('id'))
+  @vehicle = Vehicle.find(params.fetch('id').to_i())
   erb(:vehicle)
 end
 
